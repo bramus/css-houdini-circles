@@ -1,6 +1,6 @@
 {
   "name": "css-houdini-circles",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "CSS Houdini Background Circles",
   "source": "src/index.js",
   "main": "dist/circles.js",
