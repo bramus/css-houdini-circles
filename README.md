@@ -6,21 +6,21 @@ A CSS Houdini Paint Worklet to draw background circles.
 
 ## Usage
 
-### 1. Getting `css-houdini-circles`
+### 1. Getting `css-houdini-circles`
 
 #### Using a pre-built hosted version
 
-The easiest way to get `css-houdini-circles` is to use the prebuilt version from [Skypack](https://www.skypack.dev/). Just skip ahead to step 2 in that case.
+The easiest way to get `css-houdini-circles` is to use the prebuilt version from [Skypack](https://www.skypack.dev/). Just skip ahead to step 2 in that case.
 
 #### Installing it Locally
 
-You can install the `css-houdini-circles` locally using NPM.
+You can install the `css-houdini-circles` locally using NPM.
 
-```bash
+```bash
 npm install css-houdini-circles
 ```
 
-Alternatively you can clone [the `css-houdini-circles` repo](https://github.com/bramus/css-houdini-circles/) and after manually build the project:
+Alternatively you can clone [the `css-houdini-circles` repo](https://github.com/bramus/css-houdini-circles/) and after manually build the project:
 
 ```bash
 cd css-houdini-circles
@@ -30,11 +30,11 @@ npm run build
 
 You'll find the built file in the `./dist` folder.
 
-### 2. Loading `css-houdini-circles`
+### 2. Loading `css-houdini-circles`
 
 To include it you must loads the module in the given JavaScript file and add it to the Paint Worklet.
 
-If you want to use the Skypack hosted version of `css-houdini-circles`, use `https://cdn.skypack.dev/css-houdini-circles`as the `moduleURL`.
+If you want to use the Skypack hosted version of `css-houdini-circles`, use `https://cdn.skypack.dev/css-houdini-circles` as the `moduleURL`.
 
 ```js
 if ('paintWorklet' in CSS) {
@@ -42,7 +42,7 @@ if ('paintWorklet' in CSS) {
 }
 ```
 
-If you've installed `css-houdini-circles` using NPM or have manually built it, refer to its url:
+If you've installed `css-houdini-circles` using NPM or have manually built it, refer to its url:
 
 ```js
 if ('paintWorklet' in CSS) {
@@ -52,7 +52,7 @@ if ('paintWorklet' in CSS) {
 
 #### A note on older browsers
 
-To add support for [browsers that don't speak Houdini](https://ishoudinireadyyet.com/), you can include the [css-paint-polyfill](https://github.com/GoogleChromeLabs/css-paint-polyfill) before loading the Worklet.
+To add support for [browsers that don't speak Houdini](https://ishoudinireadyyet.com/   ), you can include the [css-paint-polyfill](https://github.com/GoogleChromeLabs/css-paint-polyfill) before loading the Worklet.
 
 ```html
 <script>
@@ -66,7 +66,7 @@ To add support for [browsers that don't speak Houdini](https://ishoudinireadyyet
 </script>
 ```
 
-### 3. Applying `css-houdini-circles`
+### 3. Applying `css-houdini-circles`
 
 To use Circles Paint Worklet you need to set the `background-image` property to `paint(circles)`
 
@@ -108,7 +108,7 @@ _💡 The Worklet provides default values so defining them is not required_
 
 You can play with a small demo on CodePen over at [https://codepen.io/bramus/pen/PoGbbzL](https://codepen.io/bramus/pen/PoGbbzL)
 
-If you've cloned the repo you can run `npm run demo` to launch the included demo.
+If you've cloned the repo you can run `npm run demo` to launch the included demo.
 
 ## Acknowledgements
 
@@ -116,4 +116,4 @@ The structure of this project was borrowed from [The lines PaintWorklet](https:/
 
 ## License
 
-`css-houdini-circles` is released under the MIT public license. See the enclosed `LICENSE` for details.
+`css-houdini-circles` is released under the MIT public license. See the enclosed `LICENSE` for details.
