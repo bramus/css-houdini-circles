@@ -6,9 +6,15 @@ A CSS Houdini Paint Worklet to draw background circles.
 
 ## Usage
 
-### 1. Installation
+### 1. Getting `css-houdini-circles`
 
-Install the CSS Houdini Circles using NPM.
+#### Using a pre-built hosted version
+
+The easiest way to get `css-houdini-circles` is to use the prebuilt version from [Skypack](https://www.skypack.dev/). Just skip ahead to step 2 in that case.
+
+#### Installing it Locally
+
+You can install the `css-houdini-circles` locally using NPM.
 
 ```bash
 npm install css-houdini-circles
@@ -22,17 +28,45 @@ npm install
 npm run build
 ```
 
-You'll find the built file in the `./dist` folder.
+You'll find the built file in the `./dist` folder.
 
-### 2. Include the Paint Worklet
+### 2. Loading `css-houdini-circles`
+
+To include it you must loads the module in the given JavaScript file and add it to the Paint Worklet.
+
+If you want to use the Skypack hosted version of `css-houdini-circles`, use `https://cdn.skypack.dev/css-houdini-circles`as the `moduleURL`.
 
 ```js
 if ('paintWorklet' in CSS) {
-    CSS.paintWorklet.addModule('path/to/circles.js');
+    CSS.paintWorklet.addModule('https://cdn.skypack.dev/css-houdini-circles');
 }
 ```
 
-### 3. Apply it on an element
+If you've installed `css-houdini-circles` using NPM or have manually built it, refer to its url:
+
+```js
+if ('paintWorklet' in CSS) {
+    CSS.paintWorklet.addModule('url/to/circles.js');
+}
+```
+
+#### A note on older browsers
+
+To add support for [browsers that don't speak Houdini](https://ishoudinireadyyet.com/), you can include the [css-paint-polyfill](https://github.com/GoogleChromeLabs/css-paint-polyfill) before loading the Worklet.
+
+```html
+<script>
+(async function() {
+    if (CSS['paintWorklet'] === undefined) {
+        await import('https://unpkg.com/css-paint-polyfill');
+    }
+
+    CSS.paintWorklet.addModule('https://cdn.skypack.dev/css-houdini-circles');
+})()
+</script>
+```
+
+### 3. Applying `css-houdini-circles`
 
 To use Circles Paint Worklet you need to set the `background-image` property to `paint(circles)`
 
@@ -40,22 +74,6 @@ To use Circles Paint Worklet you need to set the `background-image` property to 
 .element {
     background-image: paint(circles);
 }
-```
-
-#### A note on older browsers
-
-To add support for all moder browsers, you can load the Worklet with [css-paint-polyfill](https://github.com/GoogleChromeLabs/css-paint-polyfill) fallback.
-
-```html
-<script>
-;(async function() {
-    if (CSS['paintWorklet'] === undefined) {
-        await import('https://unpkg.com/css-paint-polyfill')
-    }
-
-    CSS.paintWorklet.addModule('./circles.js')
-})()
-</script>
 ```
 
 ## Configuration
