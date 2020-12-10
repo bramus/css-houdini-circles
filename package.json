@@ -1,0 +1,34 @@
+{
+  "name": "css-houdini-circles",
+  "version": "1.0.0",
+  "description": "CSS Houdini Background Circles",
+  "source": "src/index.js",
+  "main": "dist/circles.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bramus/css-houdini-circles.git"
+  },
+  "keywords": [
+    "houdini",
+    "css-houdini",
+    "css",
+    "paintworklet",
+    "paint",
+    "worklet",
+    "background"
+  ],
+  "author": {
+    "name": "Bram(us) Van Damme",
+    "email": "bramus@bram.us",
+    "twitter": "@bramus",
+    "web": "https://www.bram.us/"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bramus/css-houdini-circles/issues"
+  },
+  "homepage": "https://github.com/bramus/css-houdini-circles#readme"
+}
