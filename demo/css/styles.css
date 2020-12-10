@@ -1,0 +1,46 @@
+:root {
+	--size: 20em;
+}
+
+@media (min-width: 40em) {
+	:root {
+		--size: 40em;
+	}
+}
+
+* {
+	box-sizing: content-box;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+	height: 100vh;
+}
+
+body {
+	background-color: white;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	font-family: sans-serif;
+	justify-content: center;
+}
+
+.css-houdini {
+	height: var(--size);
+	padding: 1em;
+	width: var(--size);
+}
+
+.circles {
+	--colors: #f94144, #f3722c, #f8961e, #f9844a, #f9c74f, #90be6d, #43aa8b, #4d908e, #577590, #277da1;
+	--min-radius: 20;
+	--max-radius: 100;
+	--num-circles: 30;
+	--min-opacity: 10;
+	--max-opacity: 50;
+
+	background-image: paint(circles);
+}

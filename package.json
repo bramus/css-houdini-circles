@@ -5,6 +5,10 @@
   "source": "src/index.js",
   "main": "dist/circles.js",
   "scripts": {
+    "build": "microbundle --entry src/index.js --output dist/circles.js --no-pkg-main --format modern --no-sourcemap",
+    "prepublish": "npm run build",
+    "predemo": "npm run build",
+    "demo": "node ./server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -30,5 +34,9 @@
   "bugs": {
     "url": "https://github.com/bramus/css-houdini-circles/issues"
   },
-  "homepage": "https://github.com/bramus/css-houdini-circles#readme"
+  "homepage": "https://github.com/bramus/css-houdini-circles#readme",
+  "devDependencies": {
+    "express": "^4.17.1",
+    "microbundle": "^0.12.4"
+  }
 }
