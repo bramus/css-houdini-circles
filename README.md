@@ -10,7 +10,7 @@ A CSS Houdini Paint Worklet to draw background circles.
 
 #### Using a pre-built hosted version
 
-The easiest way to get `css-houdini-circles` is to use the prebuilt version from [Skypack](https://www.skypack.dev/). Just skip ahead to step 2 in that case.
+The easiest way to get `css-houdini-circles` is to use the prebuilt version through UNPKG. Just skip ahead to step 2 in that case.
 
 #### Installing it Locally
 
@@ -34,11 +34,11 @@ You'll find the built file in the `./dist` folder.
 
 To include it you must loads the module in the given JavaScript file and add it to the Paint Worklet.
 
-If you want to use the Skypack hosted version of `css-houdini-circles`, use `https://cdn.skypack.dev/css-houdini-circles` as the `moduleURL`.
+If you want to use the UNPKG hosted version of `css-houdini-circles`, use `https://unpkg.com/css-houdini-circles/dist/circles.js` as the `moduleURL`.
 
 ```js
 if ('paintWorklet' in CSS) {
-    CSS.paintWorklet.addModule('https://cdn.skypack.dev/css-houdini-circles');
+    CSS.paintWorklet.addModule('https://unpkg.com/css-houdini-circles/dist/circles.js');
 }
 ```
 
