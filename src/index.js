@@ -48,7 +48,7 @@ class CirclesPainter {
                 x: this.rand(0, w),
                 y: this.rand(0, h),
                 r: this.rand(minRadius, maxRadius),
-                color: colors[this.rand(0, colors.length)],
+                color: colors[this.rand(0, colors.length - 1)],
                 alpha: this.rand(minOpacity, maxOpacity),
             });
         }
