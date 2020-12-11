@@ -25,7 +25,7 @@ class CirclesPainter {
             }
 
             if (prop == '--colors') {
-                return props.get(prop).toString().trim().split(',');
+                return props.get(prop).toString().trim().split(',').map(color => color.trim());
             } else {
                 return parseInt(props.get(prop).toString());
             }
