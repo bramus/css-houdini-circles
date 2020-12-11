@@ -61,7 +61,7 @@ To add support for [browsers that don't speak Houdini](https://ishoudinireadyyet
         await import('https://unpkg.com/css-paint-polyfill');
     }
 
-    CSS.paintWorklet.addModule('https://cdn.skypack.dev/css-houdini-circles');
+    CSS.paintWorklet.addModule('https://unpkg.com/css-houdini-circles/dist/circles.js');
 })()
 </script>
 ```
