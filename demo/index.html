@@ -12,9 +12,13 @@
   <div class="css-houdini circles"></div>
 
   <script>
-    if ('paintWorklet' in CSS) {
-        CSS.paintWorklet.addModule('./js/circles.js');
-    }
+    (async function () {
+      if (CSS["paintWorklet"] === undefined) {
+        await import("https://unpkg.com/css-paint-polyfill");
+      }
+      
+      CSS.paintWorklet.addModule('./js/circles.js');
+    })();
   </script>
 </body>
 </html>
