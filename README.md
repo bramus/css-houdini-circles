@@ -38,9 +38,9 @@ If you want to use the UNPKG hosted version of `css-houdini-circles`, use `https
 
 ```js
 if ("paintWorklet" in CSS) {
-  CSS.paintWorklet.addModule(
-    "https://unpkg.com/css-houdini-circles/dist/circles.js"
-  );
+    CSS.paintWorklet.addModule(
+        "https://unpkg.com/css-houdini-circles/dist/circles.js"
+    );
 }
 ```
 
@@ -48,7 +48,7 @@ If you've installed `css-houdini-circles` using NPM or have manually built it, r
 
 ```js
 if ("paintWorklet" in CSS) {
-  CSS.paintWorklet.addModule("url/to/circles.js");
+    CSS.paintWorklet.addModule("url/to/circles.js");
 }
 ```
 
@@ -58,15 +58,15 @@ To add support for [browsers that don't speak Houdini](https://ishoudinireadyyet
 
 ```html
 <script>
-  (async function () {
-    if (CSS["paintWorklet"] === undefined) {
-      await import("https://unpkg.com/css-paint-polyfill");
-    }
+    (async function () {
+        if (CSS["paintWorklet"] === undefined) {
+            await import("https://unpkg.com/css-paint-polyfill");
+        }
 
-    CSS.paintWorklet.addModule(
-      "https://unpkg.com/css-houdini-circles/dist/circles.js"
-    );
-  })();
+        CSS.paintWorklet.addModule(
+            "https://unpkg.com/css-houdini-circles/dist/circles.js"
+        );
+    })();
 </script>
 ```
 
@@ -76,7 +76,7 @@ To use Circles Paint Worklet you need to set the `background-image` property to 
 
 ```css
 .element {
-  background-image: paint(circles);
+    background-image: paint(circles);
 }
 ```
 
@@ -88,15 +88,15 @@ _💡 The Worklet provides default values so defining them is not required_
 
 ```css
 .element {
-  --colors: #f94144, #f3722c, #f8961e, #f9844a, #f9c74f, #90be6d, #43aa8b,
-    #4d908e, #577590, #277da1;
-  --min-radius: 20;
-  --max-radius: 100;
-  --num-circles: 30;
-  --min-opacity: 10;
-  --max-opacity: 50;
-  --seed: 42;
-  background-image: paint(circles);
+    --colors: #f94144, #f3722c, #f8961e, #f9844a, #f9c74f, #90be6d, #43aa8b,
+        #4d908e, #577590, #277da1;
+    --min-radius: 20;
+    --max-radius: 100;
+    --num-circles: 30;
+    --min-opacity: 10;
+    --max-opacity: 50;
+    --seed: 42;
+    background-image: paint(circles);
 }
 ```
 
