@@ -1,6 +1,8 @@
 assets
 demo
 src
+.editorconfig
+.prettierrc
 .gitignore
 server.js
 package-lock.json
