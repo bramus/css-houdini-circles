@@ -1,5 +1,4 @@
 class CirclesPainter {
-
     static get inputProperties() {
         return [
             '--colors',
@@ -8,7 +7,7 @@ class CirclesPainter {
             '--min-opacity',
             '--max-opacity',
             '--num-circles',
-        ]
+        ];
     }
 
     parseProps(props) {
@@ -19,13 +18,17 @@ class CirclesPainter {
             '--min-opacity',
             '--max-opacity',
             '--num-circles',
-        ].map(prop => {
+        ].map((prop) => {
             if (!props.get(prop).length) {
                 return undefined;
             }
 
             if (prop == '--colors') {
-                return props.get(prop).toString().split(',').map(color => color.trim());
+                return props
+                    .get(prop)
+                    .toString()
+                    .split(',')
+                    .map((color) => color.trim());
             } else {
                 return parseInt(props.get(prop).toString());
             }
@@ -40,7 +43,7 @@ class CirclesPainter {
             maxRadius = 50,
             minOpacity = 10,
             maxOpacity = 80,
-            numCircles = 5
+            numCircles = 5,
         ] = this.parseProps(props);
 
         for (let i = 0, max = numCircles; i < max; i++) {
@@ -52,7 +55,6 @@ class CirclesPainter {
                 alpha: this.rand(minOpacity, maxOpacity),
             });
         }
-
     }
 
     drawCircle(ctx, circle) {
@@ -68,7 +70,6 @@ class CirclesPainter {
     rand(min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
-
 }
 
 registerPaint('circles', CirclesPainter);
