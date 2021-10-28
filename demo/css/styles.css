@@ -42,6 +42,7 @@ body {
     --num-circles: 30;
     --min-opacity: 10;
     --max-opacity: 50;
+    --seed: 42;
 
     background-image: paint(circles);
 }

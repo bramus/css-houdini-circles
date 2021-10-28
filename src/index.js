@@ -1,3 +1,13 @@
+function mulberry32(a) {
+    return function () {
+        a |= 0;
+        a = (a + 0x6d2b79f5) | 0;
+        var t = Math.imul(a ^ (a >>> 15), 1 | a);
+        t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+        return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+}
+
 class CirclesPainter {
     static get inputProperties() {
         return [
@@ -7,7 +17,12 @@ class CirclesPainter {
             '--min-opacity',
             '--max-opacity',
             '--num-circles',
+            '--seed',
         ];
+    }
+
+    constructor() {
+        this.getRandom = mulberry32(0);
     }
 
     parseProps(props) {
@@ -18,12 +33,13 @@ class CirclesPainter {
             '--min-opacity',
             '--max-opacity',
             '--num-circles',
+            '--seed',
         ].map((prop) => {
             if (!props.get(prop).length) {
                 return undefined;
             }
 
-            if (prop == '--colors') {
+            if (prop === '--colors') {
                 return props
                     .get(prop)
                     .toString()
@@ -44,8 +60,9 @@ class CirclesPainter {
             minOpacity = 10,
             maxOpacity = 80,
             numCircles = 5,
+            seed = 0,
         ] = this.parseProps(props);
-
+        this.getRandom = mulberry32(seed);
         for (let i = 0, max = numCircles; i < max; i++) {
             this.drawCircle(ctx, {
                 x: this.rand(0, w),
@@ -68,7 +85,7 @@ class CirclesPainter {
     }
 
     rand(min, max) {
-        return Math.floor(Math.random() * (max - min + 1)) + min;
+        return Math.floor(this.getRandom() * (max - min + 1)) + min;
     }
 }
 
