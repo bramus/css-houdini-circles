@@ -14,35 +14,35 @@ class CirclesPainter {
     }
     static get inputProperties() {
         return [
-            "--colors",
-            "--min-radius",
-            "--max-radius",
-            "--min-opacity",
-            "--max-opacity",
-            "--num-circles",
-            "--seed",
+            '--colors',
+            '--min-radius',
+            '--max-radius',
+            '--min-opacity',
+            '--max-opacity',
+            '--num-circles',
+            '--seed',
         ];
     }
 
     parseProps(props) {
         return [
-            "--colors",
-            "--min-radius",
-            "--max-radius",
-            "--min-opacity",
-            "--max-opacity",
-            "--num-circles",
-            "--seed",
+            '--colors',
+            '--min-radius',
+            '--max-radius',
+            '--min-opacity',
+            '--max-opacity',
+            '--num-circles',
+            '--seed',
         ].map((prop) => {
             if (!props.get(prop).length) {
                 return undefined;
             }
 
-            if (prop === "--colors") {
+            if (prop === '--colors') {
                 return props
                     .get(prop)
                     .toString()
-                    .split(",")
+                    .split(',')
                     .map((color) => color.trim());
             } else {
                 return parseInt(props.get(prop).toString());
@@ -53,7 +53,7 @@ class CirclesPainter {
     paint(ctx, geom, props) {
         const { width: w, height: h } = geom;
         const [
-            colors = ["#71a7ee", "#7940c1"],
+            colors = ['#71a7ee', '#7940c1'],
             minRadius = 10,
             maxRadius = 50,
             minOpacity = 10,
@@ -88,4 +88,4 @@ class CirclesPainter {
     }
 }
 
-registerPaint("circles", CirclesPainter);
+registerPaint('circles', CirclesPainter);

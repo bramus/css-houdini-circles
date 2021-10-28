@@ -108,6 +108,7 @@ _💡 The Worklet provides default values so defining them is not required_
 | --min-opacity | **Minimum Opacity**, minimum circle opacity (as a percentage: 0 – 100) | `10`               |
 | --max-opacity | **Maximum Opacity**, maximum circle opacity (as a percentage: 0 – 100) | `80`               |
 | --num-circles | **Number of Circles to draw**                                          | `5`                |
+| --seed        | **Seed for the random placement**                                      | `0`                |
 
 ## Demo
 
