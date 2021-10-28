@@ -95,19 +95,21 @@ _💡 The Worklet provides default values so defining them is not required_
     --num-circles: 30;
     --min-opacity: 10;
     --max-opacity: 50;
+    --seed: 42;
 
     background-image: paint(circles);
 }
 ```
 
-| property      | description                                                            | default value      |
-| ------------- | ---------------------------------------------------------------------- | ------------------ |
-| --colors      | **Colors To Use**, one or more hexadecimal colors comma separated      | `#71a7ee, #7940c1` |
-| --min-radius  | **Minimum Radius**, minimum circle radius (in pixels)                  | `10`               |
-| --max-radius  | **Maximum Radius**, maximum circle radius (in pixels)                  | `50`               |
-| --min-opacity | **Minimum Opacity**, minimum circle opacity (as a percentage: 0 – 100) | `10`               |
-| --max-opacity | **Maximum Opacity**, maximum circle opacity (as a percentage: 0 – 100) | `80`               |
-| --num-circles | **Number of Circles to draw**                                          | `5`                |
+| property      | description                                                                                                                                                                                    | default value      |
+| ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| --colors      | **Colors To Use**, one or more hexadecimal colors comma separated                                                                                                                              | `#71a7ee, #7940c1` |
+| --min-radius  | **Minimum Radius**, minimum circle radius (in pixels)                                                                                                                                          | `10`               |
+| --max-radius  | **Maximum Radius**, maximum circle radius (in pixels)                                                                                                                                          | `50`               |
+| --min-opacity | **Minimum Opacity**, minimum circle opacity (as a percentage: 0 – 100)                                                                                                                         | `10`               |
+| --max-opacity | **Maximum Opacity**, maximum circle opacity (as a percentage: 0 – 100)                                                                                                                         | `80`               |
+| --num-circles | **Number of Circles to draw**                                                                                                                                                                  | `5`                |
+| --seed        | **Seed for the "predictable random" generator**, See [https://jakearchibald.com/2020/css-paint-predictably-random/](https://jakearchibald.com/2020/css-paint-predictably-random/) for details. | `0`                |
 
 ## Demo
 
