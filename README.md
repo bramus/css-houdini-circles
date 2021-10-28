@@ -84,7 +84,19 @@ To use Circles Paint Worklet you need to set the `background-image` property to 
 
 You can tweak the appearance of the Cicles Paint Worklet by setting some CSS Custom Properties
 
+| property      | description                                                                                                                                                                                    | default value      |
+| ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| --colors      | **Colors To Use**, one or more hexadecimal colors comma separated                                                                                                                              | `#71a7ee, #7940c1` |
+| --min-radius  | **Minimum Radius**, minimum circle radius (in pixels)                                                                                                                                          | `10`               |
+| --max-radius  | **Maximum Radius**, maximum circle radius (in pixels)                                                                                                                                          | `50`               |
+| --min-opacity | **Minimum Opacity**, minimum circle opacity (as a percentage: 0 – 100)                                                                                                                         | `10`               |
+| --max-opacity | **Maximum Opacity**, maximum circle opacity (as a percentage: 0 – 100)                                                                                                                         | `80`               |
+| --num-circles | **Number of Circles to draw**                                                                                                                                                                  | `5`                |
+| --seed        | **Seed for the "predictable random" generator**, See [https://jakearchibald.com/2020/css-paint-predictably-random/](https://jakearchibald.com/2020/css-paint-predictably-random/) for details. | `0`                |
+
 _💡 The Worklet provides default values so defining them is not required_
+
+### Example
 
 ```css
 .element {
@@ -101,17 +113,51 @@ _💡 The Worklet provides default values so defining them is not required_
 }
 ```
 
-| property      | description                                                                                                                                                                                    | default value      |
-| ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| --colors      | **Colors To Use**, one or more hexadecimal colors comma separated                                                                                                                              | `#71a7ee, #7940c1` |
-| --min-radius  | **Minimum Radius**, minimum circle radius (in pixels)                                                                                                                                          | `10`               |
-| --max-radius  | **Maximum Radius**, maximum circle radius (in pixels)                                                                                                                                          | `50`               |
-| --min-opacity | **Minimum Opacity**, minimum circle opacity (as a percentage: 0 – 100)                                                                                                                         | `10`               |
-| --max-opacity | **Maximum Opacity**, maximum circle opacity (as a percentage: 0 – 100)                                                                                                                         | `80`               |
-| --num-circles | **Number of Circles to draw**                                                                                                                                                                  | `5`                |
-| --seed        | **Seed for the "predictable random" generator**, See [https://jakearchibald.com/2020/css-paint-predictably-random/](https://jakearchibald.com/2020/css-paint-predictably-random/) for details. | `0`                |
+### Registering the Custom Properties
 
-## Demo
+To properly animate the Custom Properties and to make use of the built-in syntax validation you [need to register the Custom Properties](https://web.dev/at-property/). Include this CSS Snippet to do so:
+
+```css
+@property --colors {
+    syntax: '<color>#';
+    initial-value: #71a7ee, #7940c1;
+    inherits: false;
+}
+@property --min-radius {
+    syntax: '<number>';
+    initial-value: 10;
+    inherits: false;
+}
+@property --max-radius {
+    syntax: '<number>';
+    initial-value: 50;
+    inherits: false;
+}
+@property --min-opacity {
+    syntax: '<number>';
+    initial-value: 10;
+    inherits: false;
+}
+@property --max-opacity {
+    syntax: '<number>';
+    initial-value: 80;
+    inherits: false;
+}
+@property --num-circles {
+    syntax: '<number>';
+    initial-value: 5;
+    inherits: false;
+}
+@property --seed {
+    syntax: '<number>';
+    initial-value: 0;
+    inherits: true;
+}
+```
+
+💡 Inclusion of this code snippet is not required, but recommended.
+
+## Demo / Development
 
 You can play with a small demo on CodePen over at [https://codepen.io/bramus/pen/PoGbbzL](https://codepen.io/bramus/pen/PoGbbzL)
 

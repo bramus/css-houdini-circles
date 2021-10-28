@@ -34,20 +34,62 @@ class CirclesPainter {
             '--max-opacity',
             '--num-circles',
             '--seed',
-        ].map((prop) => {
-            if (!props.get(prop).length) {
+        ].map((propName) => {
+            const prop = props.get(propName);
+
+            // Cater for browsers that don't speak CSS Typed OM and
+            // for browsers that do speak it, but haven't registered the props
+            if (
+                typeof CSSUnparsedValue === 'undefined' ||
+                prop instanceof CSSUnparsedValue
+            ) {
+                if (!prop.length || prop === '') {
+                    return undefined;
+                }
+
+                switch (propName) {
+                    case '--min-radius':
+                    case '--max-radius':
+                    case '--min-opacity':
+                    case '--max-opacity':
+                    case '--num-circles':
+                    case '--seed':
+                        return parseInt(prop.toString());
+
+                    case '--colors':
+                        return prop
+                            .toString()
+                            .split(',')
+                            .map((color) => color.trim());
+
+                    default:
+                        return prop.toString().trim();
+                }
+            }
+
+            // Prop is not typed using @property (UnparsedValue) and not set either
+            // ~> Return undefined so that we can fall back to the default value during destructuring
+            if (prop instanceof CSSUnparsedValue && !prop.length) {
                 return undefined;
             }
 
-            if (prop === '--colors') {
-                return props
-                    .get(prop)
-                    .toString()
-                    .split(',')
-                    .map((color) => color.trim());
-            } else {
-                return parseInt(props.get(prop).toString());
+            // Prop is a UnitValue (Number, Percentage, Integer, …)
+            // ~> Return the value
+            if (prop instanceof CSSUnitValue) {
+                return prop.value;
             }
+
+            // Special case: cell colors
+            // We need to get each value using props.getAll();
+            if (propName === '--colors') {
+                return props
+                    .getAll(propName)
+                    .map((prop) => prop.toString().trim());
+            }
+
+            // All others (such as CSSKeywordValue)
+            //~> Return the string
+            return prop.toString().trim();
         });
     }
 

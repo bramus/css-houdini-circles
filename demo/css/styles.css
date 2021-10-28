@@ -45,4 +45,47 @@ body {
     --seed: 42;
 
     background-image: paint(circles);
+
+    transition: --num-circles 0.5s ease-in-out, --min-opacity 0.5s ease-in-out;
+}
+
+.circles:hover {
+    --num-circles: 10;
+    --min-opacity: 40;
+}
+
+@property --colors {
+    syntax: '<color>#';
+    initial-value: #71a7ee, #7940c1;
+    inherits: false;
+}
+@property --min-radius {
+    syntax: '<number>';
+    initial-value: 10;
+    inherits: false;
+}
+@property --max-radius {
+    syntax: '<number>';
+    initial-value: 50;
+    inherits: false;
+}
+@property --min-opacity {
+    syntax: '<number>';
+    initial-value: 10;
+    inherits: false;
+}
+@property --max-opacity {
+    syntax: '<number>';
+    initial-value: 80;
+    inherits: false;
+}
+@property --num-circles {
+    syntax: '<number>';
+    initial-value: 5;
+    inherits: false;
+}
+@property --seed {
+    syntax: '<number>';
+    initial-value: 0;
+    inherits: true;
 }
