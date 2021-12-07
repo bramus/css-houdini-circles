@@ -37,6 +37,6 @@
   "homepage": "https://github.com/bramus/css-houdini-circles#readme",
   "devDependencies": {
     "express": "^4.17.1",
-    "microbundle": "^0.12.4"
+    "microbundle": "^0.14.2"
   }
 }
